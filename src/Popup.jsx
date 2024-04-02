@@ -13,7 +13,7 @@ function Popup({ setIsOpen, cartItems, setCartItems, setCartItemsCount }) {
     const removeFromCart = (product)=>{
 
         setCartItems(cartItems.filter(cartItem=>cartItem.id != product.id))
-        setCartItemsCount(cartItems.length)
+        setCartItemsCount(cartItems.length-1)
     }
 
 
