@@ -5,10 +5,12 @@ import Section from "./Section";
 import Header from "./Header";
 import Footer from "./Footer";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  const products = [
+  const [isOpen, setIsOpen] = useState(false);
+
+  const productsAvailable = [
     {
       id: 1,
       img: "https://picsum.photos/200/300",
@@ -35,27 +37,38 @@ function App() {
     },
   ];
 
-  const [cart, setCart] = useState([]);
-  const [cartItemCount, setCartItemCount] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
+  const [cartItemsCount, setCartItemsCount] = useState(0);
+  const [products, setProducts] = useState([])
 
-  let addToCart = (product) => {
-    setCart([...cart, product]);
-    setCartItemCount(cart.length);
+  const addToCart = (product) => {
+    setCartItems([...cartItems, product]);
+    setCartItemsCount(cartItems.length + 1 );
   };
 
-  let showItemsInCart = (item) => {
-    return item;
-  };
+ 
+
+useEffect(()=>{
+  setProducts(productsAvailable)
+}, [])
+
+
+
+  
 
   return (
     <>
-      <Navbar
-        cart={cart}
-        cartItemCount={cartItemCount}
-        showItemsInCart={showItemsInCart}
-      />
+      <Navbar cartItemsCount={cartItemsCount} setIsOpen={setIsOpen} />
       <Header />
-      <Section products={products} addToCart={addToCart} />
+      <Section
+        products={products}       
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+        addToCart={addToCart}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        setCartItemsCount={setCartItemsCount}
+      />
       <Footer />
     </>
   );

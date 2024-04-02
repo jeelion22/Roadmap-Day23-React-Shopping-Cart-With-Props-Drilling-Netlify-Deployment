@@ -1,6 +1,6 @@
 import Cart from "./Cart";
 
-function Navbar({ cart, cartItemCount, showItemsInCart }) {
+function Navbar({ cartItemsCount, setIsOpen }) {
   return (
     <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
       <div className="container px-4 px-lg-5">
@@ -63,7 +63,7 @@ function Navbar({ cart, cartItemCount, showItemsInCart }) {
               </ul>
             </li>
           </ul>
-          <Cart cart={cart} cartItemCount={cartItemCount} showItemsInCart={showItemsInCart}/>
+          <Cart  cartItemsCount={cartItemsCount}  setIsOpen={setIsOpen} />
         </div>
       </div>
     </nav>

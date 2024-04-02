@@ -1,22 +1,34 @@
-import CartItems from "./CartItems";
 
-function Cart({ cart, cartItemCount, showItemsInCart }) {
+
+function Cart({ cartItemsCount,  setIsOpen }) {
+
+
+
+  
+
+  
+
+
   return (
     <>
-      <form className="d-flex">
+      <form className="d-flex flex-column">
         <button
           onClick={() => {
-            window.alert("Clicked Cart");
+            setIsOpen(true)
+            
           }}
           className="btn btn-outline-dark"
-          type="submit"
+          type="button"
         >
           <i className="bi-cart-fill me-1"></i>
           Cart
           <span className="badge bg-dark text-white ms-1 rounded-pill">
-            {cartItemCount}
+            {cartItemsCount}
           </span>
-        </button>
+        </button>  
+      
+
+
       </form>
     </>
   );

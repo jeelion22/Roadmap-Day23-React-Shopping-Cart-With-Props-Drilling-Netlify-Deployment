@@ -2,7 +2,7 @@ import React from "react";
 
 function Card({ product, addToCart }) {
   return (
-    <div className="col mb-5">
+    <div className="col-auto mb-5">
       <div className="card h-100">
         <img className="card-img-top" src={product.img} alt="..." />
 
@@ -15,7 +15,7 @@ function Card({ product, addToCart }) {
 
         <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
           <div className="text-center">
-            <button onClick={()=>{addToCart(product)}} className="btn btn-outline-dark mt-auto" href="#">
+            <button onClick={()=>{addToCart(product)}} className="btn btn-outline-dark mt-auto">
               Add to Cart
             </button>
           </div>
