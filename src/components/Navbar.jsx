@@ -1,5 +1,7 @@
 import Cart from "./Cart";
 
+// navbar component
+
 function Navbar({ cartItemsCount, setIsOpen }) {
   return (
     <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
@@ -63,6 +65,7 @@ function Navbar({ cartItemsCount, setIsOpen }) {
               </ul>
             </li>
           </ul>
+          {/* this component is for cart icon */}
           <Cart  cartItemsCount={cartItemsCount}  setIsOpen={setIsOpen} />
         </div>
       </div>

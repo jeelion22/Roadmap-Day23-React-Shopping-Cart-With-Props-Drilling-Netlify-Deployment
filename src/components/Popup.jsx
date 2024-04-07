@@ -9,9 +9,8 @@ import Cartitems from "./Cartitems";
 function Popup({ setIsOpen, cartItems, total, setTotal,qty, setQty, removeFromCart }) {
     
 
-
-
-
+// Opens a pop-up and shows the items added to the cart
+// Enables to change quantity, remove item from the product
 
   return (
     <div className="container-sm-12" style={{ width: "70%" }}>

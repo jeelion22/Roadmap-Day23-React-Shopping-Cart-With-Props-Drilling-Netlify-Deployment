@@ -4,11 +4,12 @@ import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 function Cartitems({ product, removeFromCart, setTotal, qty, setQty }) {
  
- 
+//  it is component responsible for showing items in the cart
 
   return (
     <tr>
       <td>
+        {/* remove btn */}
         <button onClick={()=>{
           removeFromCart(product)
         }} type="button" className="btn btn-outline-dark mt-auto" >
@@ -16,7 +17,10 @@ function Cartitems({ product, removeFromCart, setTotal, qty, setQty }) {
         </button>
         <span className="ms-2">{product.name}</span>
       </td>
+
       <td>&#8377;{product.price}</td>
+
+      {/* quantity control btns */}
       <td>
         <button className="btn btn-outline-dark  mt-auto"
           onClick={() => {
@@ -44,6 +48,8 @@ function Cartitems({ product, removeFromCart, setTotal, qty, setQty }) {
         >
           +
         </button>
+
+        {/* subtotal of the product */}
       </td>
       <td>&#8377;{product.price*qty[product.id]}</td>
     </tr>

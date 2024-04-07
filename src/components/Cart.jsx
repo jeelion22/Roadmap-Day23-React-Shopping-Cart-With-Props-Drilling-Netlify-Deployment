@@ -1,21 +1,13 @@
+function Cart({ cartItemsCount, setIsOpen }) {
 
-
-function Cart({ cartItemsCount,  setIsOpen }) {
-
-
-
-  
-
-  
-
-
+  // this is the component for showing cart items on click and for
+  // showing items count in the cart
   return (
     <>
       <form className="d-flex flex-column">
         <button
           onClick={() => {
-            setIsOpen(true)
-            
+            setIsOpen(true);
           }}
           className="btn btn-outline-dark"
           type="button"
@@ -25,10 +17,7 @@ function Cart({ cartItemsCount,  setIsOpen }) {
           <span className="badge bg-dark text-white ms-1 rounded-pill">
             {cartItemsCount}
           </span>
-        </button>  
-      
-
-
+        </button>
       </form>
     </>
   );

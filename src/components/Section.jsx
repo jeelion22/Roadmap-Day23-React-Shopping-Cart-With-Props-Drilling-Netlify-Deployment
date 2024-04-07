@@ -15,6 +15,7 @@ function Section({
   qty,
   setQty
 }) {
+  // Component for whole products to be displayed
   return (
     <>
       <section className="py-5 d-flex">
@@ -33,6 +34,7 @@ function Section({
             })}
           </div>
         </div>
+        {/* if isOpen is true, the pop-up component will be displayed */}
         {isOpen && (
           <Popup
             setIsOpen={setIsOpen}
