@@ -11,7 +11,7 @@ function Cartitems({ product, removeFromCart, setTotal, qty, setQty }) {
       <td>
         <button onClick={()=>{
           removeFromCart(product)
-        }} type="button" className="border-0 p-0 bg-white">
+        }} type="button" className="btn btn-outline-dark mt-auto" >
           <FontAwesomeIcon icon={faTrashCan} />
         </button>
         <span className="ms-2">{product.name}</span>

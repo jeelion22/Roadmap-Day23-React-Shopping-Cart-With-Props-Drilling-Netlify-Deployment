@@ -14,17 +14,17 @@ function Popup({ setIsOpen, cartItems, total, setTotal,qty, setQty, removeFromCa
 
 
   return (
-    <div className="container" style={{ width: "70%" }}>
+    <div className="container-sm-12" style={{ width: "70%" }}>
       <div className="row">
-        <div className="col-md-12 d-flex justify-content-between align-items-center">
+        <div className="col-md-12  d-flex justify-content-between align-items-center">
           <FontAwesomeIcon icon={faCartShopping} />
           <h2>Your Cart</h2>
-          <button
+          <button 
             type="button"
             onClick={() => {
               setIsOpen(false);
             }}
-            className="border-0 bg-white"
+            className="btn btn-outline-dark mt-auto"
           >
             {" "}
             <FontAwesomeIcon icon={faWindowClose} />

@@ -3,8 +3,8 @@ import React from "react";
 function Card({ product, addToCart, qty, removeFromCart }) {
   return (
     <div className="col-auto mb-5">
-      <div className="card h-100">
-        <img className="card-img-top" src={product.img} alt="..." />
+      <div className="card h-100 p-1">
+        <img className="card-img-top" src={product.img} alt="product-img" style={{height: 200}} />
 
         <div className="card-body p-4">
           <div className="text-center">
