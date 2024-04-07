@@ -4,17 +4,13 @@ import {
   faWindowClose,
 } from "@fortawesome/free-solid-svg-icons";
 import Cartitems from "./Cartitems";
-import { useState } from "react";
-
-function Popup({ setIsOpen, cartItems, setCartItems, setCartItemsCount }) {
-    const [total, setTotal] = useState(0)
 
 
-    const removeFromCart = (product)=>{
+function Popup({ setIsOpen, cartItems, total, setTotal,qty, setQty, removeFromCart }) {
+    
 
-        setCartItems(cartItems.filter(cartItem=>cartItem.id != product.id))
-        setCartItemsCount(cartItems.length-1)
-    }
+
+
 
 
   return (
@@ -49,7 +45,7 @@ function Popup({ setIsOpen, cartItems, setCartItems, setCartItemsCount }) {
             </thead>
             <tbody>
                 {cartItems.map(product=>{
-                    return <Cartitems key={product.id} product={product} total={total} setTotal={setTotal} removeFromCart={removeFromCart}/>
+                    return <Cartitems key={product.id} product={product} total={total} setTotal={setTotal}  removeFromCart={removeFromCart} qty={qty} setQty={setQty}/>
 
                 })}
             

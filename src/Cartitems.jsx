@@ -2,59 +2,50 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
-function Cartitems({ product, total, setTotal, removeFromCart }) {
-  const [qty, setQty] = useState(1);
-  const [subTotal, setSubTotal] = useState(product.price);
+function Cartitems({ product, removeFromCart, setTotal, qty, setQty }) {
+ 
+ 
 
-  useEffect(() => {
-setTotal(total + subTotal);
-  }, []);
   return (
     <tr>
       <td>
-        <button
-          onClick={() => {
-            setTotal(total - subTotal);
-
-            removeFromCart(product);
-          }}
-          type="button"
-          className="border-0 p-0 bg-white"
-        >
+        <button onClick={()=>{
+          removeFromCart(product)
+        }} type="button" className="border-0 p-0 bg-white">
           <FontAwesomeIcon icon={faTrashCan} />
         </button>
         <span className="ms-2">{product.name}</span>
       </td>
       <td>&#8377;{product.price}</td>
       <td>
-        <button
+        <button className="btn btn-outline-dark  mt-auto"
           onClick={() => {
-            qty > 1 &&
-              subTotal > product.price &&
-              total > 0 &&
-              setQty(
-                qty - 1,
-                setSubTotal(subTotal - product.price),
-                setTotal(total - product.price)
-              );
+            qty[product.id] > 1 && [
+              setQty(prevQty => {const updateQty = {...prevQty};
+              updateQty[product.id] = updateQty[product.id]-1; return updateQty}),
+            
+              setTotal(total=>total-product.price)
+           
+            ];
           }}
           type="button"
         >
           -
-        </button>
-        {qty}
-        <button
+        </button > 
+        {qty[product.id]}
+        <button className="btn btn-outline-dark mt-auto"
           onClick={() => {
-            setQty(qty + 1);
-            setSubTotal(subTotal + product.price);
-            setTotal(total + product.price);
+            setQty(prevQty => {const updateQty = {...prevQty};
+              updateQty[product.id] = updateQty[product.id] + 1; return updateQty}),
+          
+            setTotal(total => total + product.price);
           }}
           type="button"
         >
           +
         </button>
       </td>
-      <td>&#8377;{subTotal}</td>
+      <td>&#8377;{product.price*qty[product.id]}</td>
     </tr>
   );
 }
