@@ -1,4 +1,4 @@
-# React Router Task
+# React Shopping App
 
 This is a react based shopping app. The states of the components where required are managed using react's internall state managment hooks, it is completely relayed on props drilling over the components.
 
